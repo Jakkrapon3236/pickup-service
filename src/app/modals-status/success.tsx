@@ -1,6 +1,7 @@
 type SuccessProps = {
   handleToggleModal: (name: string) => void;
 };
+"use client";
 import Image from "next/image";
 import react, { useState } from "react";
 const Wait: React.FC<SuccessProps> = ({ handleToggleModal }) => {

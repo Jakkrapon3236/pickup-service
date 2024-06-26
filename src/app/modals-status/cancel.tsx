@@ -1,7 +1,7 @@
 type CancelProps = {
     handleToggleModal: (name: string) => void;
 }
-
+"use client";
 import react, { useState } from 'react';
 import Image from 'next/image';
 
