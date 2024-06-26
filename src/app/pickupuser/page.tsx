@@ -10,14 +10,13 @@ export default function PickupUser() {
   const [location, setLocation] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleImageChange = (event: { target: { files: any[] } }) => {
-    const selectedFile = event.target.files[0];
-    if (selectedFile) {
-      // Assuming you handle file upload and set the `image` state to the uploaded file's URL
-      const imageUrl = URL.createObjectURL(selectedFile); // Example for local URL
-      setImage(imageUrl);
-    }
-  };
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  if (event.target.files && event.target.files.length > 0) {
+    // Handle the file(s) here
+    // For example, setting the file to state or uploading it
+    console.log(event.target.files[0]);
+  }
+};
 
   const handleIconClick = () => {
     if (navigator.geolocation) {
