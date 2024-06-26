@@ -11,7 +11,7 @@ export default function MainUser() {
   const [modalName, setModalName] = useState("");
   const dateNow = new Date().toLocaleDateString(); // Declare and initialize the 'dateNow' variable
 
-  const handleToggleModal = (name: string,status : number) => {
+  const handleToggleModal = (name= "",status = 0) => {
     setIsModalOpen(!isModalOpen);
     setModalName(name);
     setStatus(status);
