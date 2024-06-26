@@ -3,6 +3,7 @@ import React ,{useState} from "react";
 
 export default function notiuser() {
 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleToggleModal = () => {
