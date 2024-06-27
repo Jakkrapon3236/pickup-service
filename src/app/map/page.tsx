@@ -13,9 +13,9 @@ const center = {
 };
 
 function MapComponent() {
-  const [map, setMap] = useState(null);
+  const [map, setMap] = useState<google.maps.Map | null>(null);
 
-  const onLoad = (map: google.maps.Map<Element> | null) => {
+  const onLoad = (map: google.maps.Map | null) => {
     setMap(map);
   };
 
