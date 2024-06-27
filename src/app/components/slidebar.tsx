@@ -10,8 +10,10 @@ export default function Sidebar({
 }) {
   const [homeIcon, setHomeIcon] = useState("/iconwork/home.png");
   const [searchIcon, setSearchIcon] = useState("/iconwork/BoxW.png");
-  const [dashboardIcon, setDashboardIcon] = useState("/iconwork/noti.png");
+  const [notiIcon, setNotiIcon] = useState("/iconwork/noti.png");
+  const [dashboardIcon, setDashboardIcon] = useState("/iconwork/checklistW.png");
   const [settingsIcon, setSettingsIcon] = useState("/iconwork/userW.png");
+  const [carIcon, setCarIcon] = useState("/iconwork/carW (1).png");
   const [bottomIcon, setBottomIcon] = useState("/iconwork/logout.png");
 
   const handleHover =
@@ -93,16 +95,54 @@ export default function Sidebar({
             href="#"
             aria-label="Dashboard"
             onMouseEnter={handleHover(
-              setDashboardIcon,
+              setNotiIcon,
               "/iconwork/notired.png",
               "/iconwork/noti.png"
             )}
-            onMouseLeave={handleLeave(setDashboardIcon, "/iconwork/noti.png")}
-            onClick={handleClick(setDashboardIcon, "/iconwork/notired.png", 3)}
+            onMouseLeave={handleLeave(setNotiIcon, "/iconwork/noti.png")}
+            onClick={handleClick(setNotiIcon, "/iconwork/notired.png", 3)}
+          >
+            <Image
+              src={notiIcon}
+              alt="Dashboard Icon"
+              width={24}
+              height={24}
+            />
+          </a>
+          <a
+            className="flex items-center justify-center w-12 h-12 mt-2 text-gray-200 hover:bg-white rounded"
+            href="#"
+            aria-label="Dashboard"
+            onMouseEnter={handleHover(
+              setCarIcon,
+              "/iconwork/carR.png",
+              "/iconwork/carW (1).png"
+            )}
+            onMouseLeave={handleLeave(setCarIcon, "/iconwork/carW (1).png")}
+            onClick={handleClick(setCarIcon, "/iconwork/carW (1).png", 5)}
+          >
+            <Image
+              src={carIcon}
+              alt="Car Icon"
+              width={24}
+              height={24}
+            />
+          </a>
+          <a
+            className="flex items-center justify-center w-12 h-12 mt-2 text-gray-200 hover:bg-white rounded"
+            href="#"
+            aria-label="Dashboard"
+            onMouseEnter={handleHover(
+              setDashboardIcon,
+              "/iconwork/checklistR.png",
+              "/iconwork/checklistW.png"
+            )}
+            onMouseLeave={handleLeave(setDashboardIcon, "/iconwork/checklistW.png")}
+            onClick={handleClick(setDashboardIcon, "/iconwork/checklistW.png", 6)}
           >
             <Image
               src={dashboardIcon}
-              alt="Dashboard Icon"
+              alt="Car Icon"
               width={24}
               height={24}
             />

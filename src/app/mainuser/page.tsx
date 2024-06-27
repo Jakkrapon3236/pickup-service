@@ -1,9 +1,9 @@
 "use client"
 import React, { useState } from "react";
 import Image from "next/image";
-import Wait from "../modals-status/wait";
-import Success from "../modals-status/success";
-import Cancel from "../modals-status/cancel";
+import Wait from "../modals-status/pickup/wait";
+import Success from "../modals-status/pickup/success";
+import Cancel from "../modals-status/pickup/cancel";
 import Mainpickup from "../mainpickup/page";
 export default function MainUser() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,6 +11,7 @@ export default function MainUser() {
   const [modalName, setModalName] = useState("");
   const dateNow = new Date().toLocaleDateString(); // Declare and initialize the 'dateNow' variable
   const [statusShow, setStatusShow] = useState(0); // Declare and initialize the 'status' variable
+  
   const handleToggleModal = (name = "", status = 0) => {
     setIsModalOpen(!isModalOpen);
     setModalName(name);
@@ -170,6 +171,7 @@ export default function MainUser() {
             {status === 1 && <Wait handleToggleModal={handleToggleModal} />}
             {status === 4 && <Success handleToggleModal={handleToggleModal} />}
             {status === 3 && <Cancel handleToggleModal={handleToggleModal} />}
+            
           </>
         )}
       </div>
