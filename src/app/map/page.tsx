@@ -1,3 +1,4 @@
+"use client";
 import React, { Component } from 'react';
 import { longdo, map, LongdoMap } from '../longdo-map/LongdoMap'; // Corrected import path
 
