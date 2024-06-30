@@ -1,43 +1,29 @@
-"use client";
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
-import { useState } from 'react';
+import React, { Component } from 'react';
+import { longdo, map, LongdoMap } from '../longdo-map/LongdoMap'; // Corrected import path
 
-const containerStyle = {
-  width: '100%',
-  height: '100vh', // เปลี่ยนเป็น 100vh เพื่อให้แผนที่เต็มจอ
-};
+class App extends Component {
+  constructor(props: {}) {
+    super(props);
+    this.initMap = this.initMap.bind(this);
+  }
 
-const center = {
-  lat: 16.475206028861912,
-  lng: 99.50818040374983
-};
+  initMap() {
+    if (map && longdo) {
+      map.Layers.setBase(longdo.Layers.GRAY);
+    } else {
+      console.error('Map or Longdo is not defined');
+    }
+  }
 
-function MapComponent() {
-  const [map, setMap] = useState<google.maps.Map | null>(null);
-
-  const onLoad = (map: google.maps.Map | null) => {
-    setMap(map);
-  };
-
-  const onUnmount = () => {
-    setMap(null);
-  };
-
-  return (
-    <div style={{ width: '100%', height: '100vh' }}>
-      <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? ''}>
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={center}
-          zoom={15}
-          onLoad={onLoad}
-          onUnmount={onUnmount}
-        >
-          { /* Child components, such as markers, info windows, etc. */ }
-        </GoogleMap>
-      </LoadScript>
-    </div>
-  );
+  render() {
+    const mapKey = '33f7afb9885e9fbd4cc26b96b75dfed3';
+    return (
+      <div style={{ width: '100%', height: '100vh' }}>
+        <LongdoMap id="longdo-map" mapKey={mapKey} callback={this.initMap} />
+      </div>
+    );
+  }
 }
 
-export default MapComponent;
+export default App;
+
